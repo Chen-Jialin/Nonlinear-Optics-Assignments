@@ -1,0 +1,465 @@
+% !TEX program = pdflatex
+% !TEX options = -synctex=1 -interaction=nonstopmode -file-line-error "%DOC%"
+% Nonlinear Optics Assignment 3
+\documentclass[UTF8,10pt,a4paper]{article}
+\usepackage[scheme=plain]{ctex}
+\newcommand{\CourseName}{Nonlinear Optics}
+\newcommand{\CourseCode}{PHYS2202}
+\newcommand{\Semester}{Spring, 2020}
+\newcommand{\ProjectName}{Assignment 3}
+\newcommand{\DueTimeType}{Due Time}
+\newcommand{\DueTime}{13:01, March 31, 2020 (Tuesday)}
+\newcommand{\StudentName}{陈稼霖}
+\newcommand{\StudentID}{45875852}
+\usepackage[vmargin=1in,hmargin=.5in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{calc}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\CourseName}
+\fancyhead[C]{\ProjectName}
+\fancyhead[R]{\StudentName}
+\fancyfoot[R]{\thepage\ / \pageref{LastPage}}
+\setlength\headheight{12pt}
+\fancypagestyle{FirstPageStyle}{
+    \fancyhf{}
+    \fancyhead[L]{\CourseName\\
+        \CourseCode\\
+        \Semester}
+    \fancyhead[C]{{\Huge\bfseries\ProjectName}\\
+        \DueTimeType\ : \DueTime}
+    \fancyhead[R]{Name : \makebox[\widthof{\StudentID}][s]{\StudentName}\\
+        Student ID\@ : \StudentID\\
+        Score : \underline{\makebox[\widthof{\StudentID}]{}}}
+    \fancyfoot[R]{\thepage\ / \pageref{LastPage}}
+    \setlength\headheight{36pt}
+}
+\usepackage{amsmath,amssymb,amsthm,bm}
+\allowdisplaybreaks[4]
+\newtheoremstyle{Problem}
+{}
+{}
+{}
+{}
+{\bfseries}
+{.}
+{ }
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)} Score: \underline{\qquad\qquad}}
+\theoremstyle{Problem}
+\newtheorem{prob}{Problem}
+\newtheoremstyle{Solution}
+{}
+{}
+{}
+{}
+{\bfseries}
+{:}
+{ }
+{\thmname{#1}}
+\makeatletter
+\def\@endtheorem{\qed\endtrivlist\@endpefalse}
+\makeatother
+\theoremstyle{Solution}
+\newtheorem*{sol}{Solution}
+\usepackage{mathrsfs}
+% \usepackage{graphicx}
+\begin{document}
+\thispagestyle{FirstPageStyle}
+\begin{prob}[(10 points) \textbf{Second order density matrix}]
+    In class, we walk through the calculation of the second order density matrix ($\rho^{(2)}$). However, we made a mistake (OK, I made a mistake) in the moment and got zero, which I said was the wrong result. The error that I made was simply that I didn't look at every density matrix element separately; I basically added them together. Here, you will correct that mistake and find the exact density matrix $\rho^{(2)}(t)$.\\
+    As in class, we will make this as simple as possible:
+    \begin{enumerate}
+        \item[(a)] We will consider a two-level system of sub-wavelength spatial extent (so that we can ignore propagation effects).
+        \item[(b)] We will excite the system impulsively (so that our time integral are as simple as possible).
+        \item[(c)] The excitation will be by a pair of co-linearly propagation pulse. (OK, we could have made this simpler and used only a simple pulse, but that would be a little too simple.)
+        \item[(d)] We will also neglect damping.
+    \end{enumerate}
+    In other words, our system has only two eigenstates of the unperturbed Hamiltonian, $\hat{H}_0$, which we will label $\lvert 1\rangle$, the ground state, and $\lvert 2\rangle$, the excited state. We will call the unperturbed ground state energy $E_1$, and the excited state energy $E_2$. The excitation field at the material system is given by $\vec{E}(t)=\hat{z}\mathscr{E}[\delta(t-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})+\delta(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]$. (This may look like an unusual wave, but while it is somewhat artificial, you should see that it is just a pair delta function pulses propagating in the same direction.)\\
+    Please remember that, unless we specify otherwise, we work in the dipole approximation, and our interaction Hamiltonian has no diagonal elements in the basis of the eigenstates of the unperturbed Hamiltonian.\\
+    Assuming that initially, the system is in its ground state, i.e., $\rho(t<0)=\lvert 1\rangle\langle 1\rvert$ or
+    \begin{equation}
+        \left(\begin{matrix}
+            \rho_{11}(t)&\rho_{12}(t)\\
+            \rho_{21}(t)&\rho_{22}(t)
+        \end{matrix}\right)=\left(\begin{matrix}
+            1&0\\
+            0&0
+        \end{matrix}\right).
+    \end{equation}
+    Your tasks are the following.
+    \begin{enumerate}
+        \item[(a)] Write the density matrix (i.e., write the matrix representation of the density operator in the $(1,0)$, $(0,1)$ basis) for all times $t>\tau$. Just write the part that depends on the time difference $\tau_b-\tau_a$, i.e., the part that depends on interaction with both of the pulse making up the exciting field.
+        \item[(b)] Write the value of the expectation value of the dipole moment operator at $t>\tau$?
+    \end{enumerate}
+\end{prob}
+\begin{sol}
+    \begin{enumerate}
+        \item[(a)] Without loss of generality, we set $\tau_a<\tau_b$. The second-order density matrix for time $t>\tau=\max\{\tau_a+\frac{\vec{k}\cdot\vec{x}}{\omega_{21}},\tau_b+\frac{\vec{k}\cdot\vec{x}}{\omega_{21}}\}$ is
+        \footnotesize
+        \begin{align}
+            \label{1-2}
+            \nonumber&\hat{\rho}^{(2)}(t)=\left(-\frac{i}{\hbar}\right)^2\hat{U}_0(t)\int_{-\infty}^td\tau_1\int_{-\infty}^{\tau_1}d\tau_2\,[\hat{H}_I'(\tau_1),[\hat{H}_I'(\tau_2),\hat{\rho}_0]]\hat{U}_0(-t)\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)^2\hat{U}_0(t)\int_{-\infty}^td\tau_1\int_{-\infty}^{\tau_1}d\tau_2\,[\hat{H}_I'(\tau_2)\hat{H}_I'(\tau_1)\hat{\rho}_0-\hat{H}_I'(\tau_2)\hat{\rho}_0\hat{H}_I'(\tau_1)-\hat{H}_I'(\tau_1)\hat{\rho}_0\hat{H}_I'(\tau_2)+\hat{\rho}_0\hat{H}_I'(\tau_1)\hat{H}_I'(\tau_2)]\hat{U}_0(-t)\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)^2\left[\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)\hat{U}_0(\tau_2-\tau_1)\hat{H}_I(\tau_1)\hat{\rho}_0\hat{U}(-(\tau_2-\tau_1))\hat{U}_0(-(t-\tau_2))\right.\\
+            \nonumber&-\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)\hat{U}_0(\tau_2-\tau_1)\hat{\rho}_0\hat{H}_I(\tau_1)\hat{U}_0(-(\tau_2-\tau_1))\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{U}_0(\tau_2-\tau_1)\hat{H}_I(\tau_1)\hat{\rho}_0\hat{U}_0(-(\tau_2-\tau_1))\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&\left.+\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{U}_0(\tau_2-\tau_1)\hat{\rho}_0\hat{H}_I(\tau_1)\hat{U}_0(-(\tau_2-\tau_1))\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)^2\left[\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)\hat{U}_0(\tau_2-\tau_1)[(-\vec{p}\cdot\vec{E}(\tau_1))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau_1))_{21}\lvert 2\rangle\langle 1\rvert]\lvert 1\rangle\langle 1\rvert\hat{U}(-(\tau_2-\tau_1))\hat{U}_0(-(t-\tau_2))\right.\\
+            \nonumber&-\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)\hat{U}_0(\tau_2-\tau_1)\lvert 1\rangle\langle 1\rvert[(-\vec{p}\cdot\vec{E}(\tau_1))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau_1))_{21}\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(\tau_2-\tau_1))\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{U}_0(\tau_2-\tau_1)[(-\vec{p}\cdot\vec{E}(\tau_1))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau_1))_{21}\lvert 2\rangle\langle 1\rvert]\lvert 1\rangle\langle 1\rvert\hat{U}_0(-(\tau_2-\tau_1))\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&\left.+\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{U}_0(\tau_2-\tau_1)\lvert 1\rangle\langle 1\rvert[(-\vec{p}\cdot\vec{E}(\tau_1))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau_1))_{21}\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(\tau_2-\tau_1))\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)^2\mathscr{E}\left[\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)\hat{U}_0(\tau_2-\tau_1)[\delta(\tau_1-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})+\delta(\tau_1-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert\right.\\
+            \nonumber&\qquad\qquad\hat{U}_0(-(\tau_2-\tau_1))\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)\hat{U}_0(\tau_2-\tau_1)[\delta(\tau_1-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})+\delta(\tau_1-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert\\
+            \nonumber&\qquad\qquad\hat{U}_0(-(\tau_2-\tau_1))\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{U}_0(\tau_2-\tau_1)[\delta(\tau_1-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})+\delta(\tau_1-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert\\
+            \nonumber&\qquad\qquad\hat{U}_0(-(\tau_2-\tau_1))\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&+\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{U}_0(\tau_2-\tau_1)[\delta(\tau_1-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})+\delta(\tau_1-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert\\
+            \nonumber&\left.\qquad\qquad\hat{U}_0(-(\tau_2-\tau_1))\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)^2\mathscr{E}\left[\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\lvert 2\rangle\langle 1\rvert\hat{U}_0(-(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}}))\right.\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\lvert 2\rangle\langle 1\rvert\hat{U}_0(-(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}}))]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\lvert 1\rangle\langle 2\rvert\hat{U}_0(-(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}}))\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\lvert 1\rangle\langle 2\rvert\hat{U}_0(-(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}}))]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\lvert 2\rangle\langle 1\rvert\hat{U}_0(-(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}}))\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\lvert 2\rangle\langle 1\rvert\hat{U}_0(-(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}}))]\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&+\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\lvert 1\rangle\langle 2\rvert\hat{U}_0(-(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}}))\\
+            \nonumber&\left.\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\lvert 1\rangle\langle 2\rvert\hat{U}_0(-(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}}))]\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)^2\mathscr{E}\left[\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\right.\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]]\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&+\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\left.\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]]\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)^2\mathscr{E}\left[\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}E_2(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\right.\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]]\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&+\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\left.\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]]\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)^2\mathscr{E}\left[\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[(-\vec{p}\cdot\vec{E}(\tau_2))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau_2))_{21}\lvert 2\rangle\langle 1\rvert][\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\right.\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[(-\vec{p}\cdot\vec{E}(\tau_2))_{12}\lvert 1\rangle\langle 2\rvert][\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert][(-\vec{p}\cdot\vec{E}(\tau_2))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau_2))_{21}\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&+\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\\
+            \nonumber&\left.\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert][(-\vec{p}\cdot\vec{E}(\tau_2))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau_2))_{21}\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)^2\mathscr{E}^2\left[\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\delta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{E}}{\omega_{21}})+\delta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{E}}{\omega_{21}})]\right.\\
+            \nonumber&\qquad\qquad[p_{12}\lvert 1\rangle\langle 2\rvert+p_{21}\lvert 2\rangle\langle 1\rvert][\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\delta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{E}}{\omega_{21}})+\delta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{E}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad[p_{12}\lvert 1\rangle\langle 2\rvert+p_{21}\lvert 2\rangle\langle 1\rvert][\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\delta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{E}}{\omega_{21}})+\delta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{E}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert][p_{12}\lvert 1\rangle\langle 2\rvert+p_{21}\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&+\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\delta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{E}}{\omega_{21}})+\delta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{E}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad[\theta(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\\
+            \nonumber&\left.\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert][p_{12}\lvert 1\rangle\langle 2\rvert+p_{21}\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)^2\mathscr{E}^2\left[\hat{U}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})\sum_{j,m=1}^2p_{12}p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a)]\lvert 1\rangle\langle 1\rvert\hat{U}_0(-(t-\tau_b-\frac{\vec{k}\cdot\vec{E}}{\omega_{21}}))\right.\\
+            \nonumber&-\hat{U}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_b-\tau_a)]\lvert 2\rangle\langle 2\rvert\hat{U}_0(-(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}}))\\
+            \nonumber&-\hat{U}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{21}p_{12}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a)]\lvert 2\rangle\langle 2\rvert\hat{U}_0(-(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}}))\\
+            \nonumber&\left.+\hat{U}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})p_{12}p_{21}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_b-\tau_a)]\lvert 1\rangle\langle 1\rvert\hat{U}_0(-(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}}))\right]\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)^2\mathscr{E}^2\left[\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{12}p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a)]\lvert 1\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{E}}{\omega_{21}})]\right.\\
+            \nonumber&-\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{21}p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_b-\tau_a)]\lvert 2\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&-\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{21}p_{12}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a)]\lvert 2\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\left.+\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{12}p_{21}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_b-\tau_a)]\lvert 1\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\right]\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)^2\mathscr{E}^2\left[p_{12}p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a)]\lvert 1\rangle\langle 1\rvert\right.\\
+            \nonumber&-p_{21}p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_b-\tau_a)]\lvert 2\rangle\langle 2\rvert\\
+            \nonumber&-p_{21}p_{12}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a)]\lvert 2\rangle\langle 2\rvert\\
+            \nonumber&\left.+p_{12}p_{21}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_b-\tau_a)]\lvert 1\rangle\langle 1\rvert\right]\\
+            =&2\left(-\frac{i}{\hbar}\right)^2\mathscr{E}^2p_{12}p_{21}\left(\begin{matrix}
+                1&0\\
+                0&-1
+            \end{matrix}\right)\cos\left[\frac{(E_2-E_1)(\tau_b-\tau_a)}{\hbar}\right].
+        \end{align}
+        \normalsize
+        (In calculation, we used Heaviside step function: $\theta(x)=\left\{\begin{array}{ll}
+                0,&x\leq0,\\
+                1,&x>0.
+            \end{array}\right.$.)\\
+        The first-order density matrix is
+        \footnotesize
+        \begin{align}
+            \nonumber&\hat{\rho}^{(1)}(t)=\left(-\frac{i}{\hbar}\right)\hat{U}_0(t)\int_{-\infty}^td\tau\,[\hat{H}_0,\rho]\hat{U}_0(-t)\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)\left[\int_{-\infty}^td\tau\,\hat{U}_0(t-\tau)\hat{H}_I(\tau)\hat{\rho}_0\hat{U}_0(-(t-\tau))-\int_{-\infty}^t\hat{U}_0(t-\tau)\rho_0\hat{H}_I\hat{U}_0(-(t-\tau))\right]\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)\left[\int_{-\infty}^td\tau\,\hat{U}_0(t-\tau)[(-\vec{p}\cdot\vec{E}(\tau))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau))_{21}\lvert 2\rangle\langle 1\rvert)]\lvert 1\rangle\langle 1\rvert\right.\\
+            \nonumber&\qquad\qquad\left.-\int_{-\infty}^td\tau\,\hat{U}_0(t-\tau)\lvert 1\rangle\langle 1\rvert[(-\vec{p}\cdot\vec{E}(\tau))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau))_{21}\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(t-\tau))\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)\mathscr{E}\left[\int_{-\infty}^td\tau\,\hat{U}_0(t-\tau)[\delta(\tau-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})+\delta(\tau-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert\hat{U}_0(-(t-\tau))\right.\\
+            \nonumber&\qquad\qquad\left.-\int_{-\infty}^td\tau\,\hat{U}_0(t-\tau)[\delta(\tau-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})+\delta(\tau-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert\hat{U}_0(-(t-\tau))\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)\mathscr{E}\left[\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]+\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\right.\\
+            \nonumber&\qquad\qquad\left.-\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]-\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)\mathscr{E}\left[\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert+\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert\right.\\
+            \nonumber&\qquad\qquad\left.-\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert-\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert\right]\\
+            =&\left(-\frac{i}{\hbar}\right)\mathscr{E}\left(\begin{matrix}
+            0&p_{12}\left[\begin{array}{l}\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\\+\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\end{array}\right]\\
+                -p_{21}\left[\begin{array}{l}\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\\
+                +\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\end{array}\right]&0
+            \end{matrix}\right).
+        \end{align}
+        \normalsize
+        The zeroth-order density matrix is
+        \begin{equation}
+            \hat{\rho}^{(0)}(t)=\left(\begin{matrix}
+                1&0\\
+                0&0
+            \end{matrix}\right).
+        \end{equation}
+        \newpage
+        The entire density matrix is
+        \begin{align}
+            \nonumber&\hat{\rho}(t)=\hat{\rho}^{(0)}(t)+\hat{\rho}^{(1)}(t)+\hat{\rho}^{(2)}(t)\\
+            \nonumber=&\left(\begin{matrix}
+                1&0\\
+                0&0
+            \end{matrix}\right)+\left(-\frac{i}{\hbar}\right)\mathscr{E}\left(\begin{matrix}
+                0&p_{12}\left[\begin{array}{l}\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\\+\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\end{array}\right]\\
+                -p_{21}\left[\begin{array}{l}\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\\
+                +\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})]\end{array}\right]&0
+            \end{matrix}\right)\\
+            &+2\left(-\frac{i}{\hbar}\right)^2\mathscr{E}^2p_{12}p_{21}\left(\begin{matrix}
+                1&0\\
+                0&-1
+            \end{matrix}\right)\cos\left[\frac{(E_2-E_1)(\tau_b-\tau_a)}{\hbar}\right].
+        \end{align}
+        The part that depends on the time difference $\tau_b-\tau_a$ is just the second-order density matrix, i.e., equation \eqref{1-2}.
+        \item[(b)] The value of the expectation value of the dipole moment operator is
+        \begin{equation}
+            \langle\hat{p}(t)\rangle=\text{Tr}(\hat{\rho}(t)\hat{p})=\frac{2}{\hbar}\mathscr{E}p_{12}p_{21}\left\{\sin\left[\frac{(E_2-E_1)(t-\tau_a-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})}{\hbar}\right]+\sin\left[\frac{(E_2-E_1)(t-\tau_b-\frac{\vec{k}\cdot\vec{x}}{\omega_{21}})}{\hbar}\right]\right\}.
+        \end{equation}
+    \end{enumerate}
+\end{sol}
+
+\begin{prob}[(20 points) \textbf{The third-order density matrix}]
+    We now go two steps further than in the previous problem. We will consider the next order in the density matrix, and we will excite the system with three electromagnetic pulses that are traveling in different direction:
+    \[
+        \vec{E}(t)=\hat{z}\mathscr{E}_0\left[\delta\left(t-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}}\right)+\delta\left(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}}\right)+\delta\left(t-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}}\right)\right].
+    \]
+    We are interested in the third order contribution to the response. This will require that we calculate the third-order density matrix. As we saw in our treatment of a classical oscillator, when we have more than just a single monochromatic wave, the number of new frequencies can rapidly expand. If we include pulses in different directions, the same happens: we get new pulse characterized with wave vectors in different directions than any that were present in the input pulses. However, different frequencies and wave vectors are easy to distinguish. To separate frequencies we can just place our detector in the direction, that given by $\vec{k}_c+\vec{k}_b-\vec{k}_a$. This will dramatically reduce the number of processes that we have to consider, since combined with the impulsive nature of our excitation it automatically chooses a small subset of interactions with the various delta function pulse.\\
+    Your tasks are the following:
+    \begin{enumerate}
+        \item[(a)] Calculate the entire density matrix (but only that part characterized by the wave vector specified above) at times $t>\tau_c+\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}}$.
+        \item[(b)] Write down the density matrix at time $t$ given by $t-\tau_c=\tau_b-\tau_a$.
+        \item[(c)] Suppose now that we have en ensemble of almost (but not quite) identical oscillators characterized by a continuous distribution, $g(\omega_{21})$, of resonant frequencies $\omega_{21}$, where the width of the distribution $g(\omega_{21})$ is $\Delta\omega_{21}$. The density matrix must now be determined by averaging over all the frequencies.
+        \begin{enumerate}
+            \item[i.] Write down the density matrix at time $(t-\tau_c)-(\tau_b-\tau_a)\gg\frac{1}{\Delta\omega_{21}}$.
+            \item[ii.] Write the density matrix at time $t-\tau_c=\tau_b-\tau_a$.\\
+            Note that you do not need to know the exact distribution $g(\omega_{21})$. We are not looking for precise answer, just a reasonable estimate. If you really want a distribution, you can assume a Gaussian distribution.
+        \end{enumerate}
+    \end{enumerate}
+\end{prob}
+\begin{sol}
+    \begin{enumerate}
+        \item[(a)] Without loss of generality, we set $\tau_a<\tau_b<\tau_c$. Using some part of problem 1's process, the second-order density matrix between the the second and the third pulses ($\tau_b<\tau_3<\tau_c$) is
+        \footnotesize
+        \begin{align}
+            \nonumber&\hat{\rho}^{(2)}(t)=-\left(-\frac{i}{\hbar}\right)^2\mathscr{E}\left[\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)\hat{U}_0(\tau_2-\tau_1)[\delta(\tau_1-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})+\delta(\tau_1-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert\right.\\
+            \nonumber&\qquad\qquad\hat{U}_0(-(\tau_2-\tau_1))\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)\hat{U}_0(\tau_2-\tau_1)[\delta(\tau_1-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})+\delta(\tau_1-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert\\
+            \nonumber&\qquad\qquad\hat{U}_0(-(\tau_2-\tau_1))\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{U}_0(\tau_2-\tau_1)[\delta(\tau_1-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})+\delta(\tau_1-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert\\
+            \nonumber&\qquad\qquad\hat{U}_0(-(\tau_2-\tau_1))\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&+\int_{-\infty}^td\tau_2\int_{-\infty}^{\tau_2}d\tau_1\,\hat{U}_0(t-\tau_2)\hat{U}_0(\tau_2-\tau_1)[\delta(\tau_1-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})+\delta(\tau_1-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert\\
+            \nonumber&\left.\qquad\qquad\hat{U}_0(-(\tau_2-\tau_1))\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)^2\mathscr{E}\left[\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{21}\lvert 2\rangle\langle 1\rvert\hat{U}_0(-(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}}))\right.\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{21}\lvert 2\rangle\langle 1\rvert\hat{U}_0(-(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}}))]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{12}\lvert 1\rangle\langle 2\rvert\hat{U}_0(-(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}}))\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{12}\lvert 1\rangle\langle 2\rvert\hat{U}_0(-(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}}))]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{21}\lvert 2\rangle\langle 1\rvert\hat{U}_0(-(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}}))\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{21}\lvert 2\rangle\langle 1\rvert\hat{U}_0(-(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}}))]\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&+\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{12}\lvert 1\rangle\langle 2\rvert\hat{U}_0(-(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}}))\\
+            \nonumber&\left.\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})\hat{U}_0(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{12}\lvert 1\rangle\langle 2\rvert\hat{U}_0(-(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}}))]\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)^2\mathscr{E}\left[\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\right.\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{21}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{21}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{21}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]]\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&+\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\left.\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]]\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)^2\mathscr{E}\left[\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}E_2(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\right.\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{21}\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)\hat{H}_I(\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{21}\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{21}\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]]\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&+\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\left.\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{12}\exp[\frac{i}{\hbar}E_1(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}E_2(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]]\hat{H}_I(\tau_2)\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)^2\mathscr{E}\left[\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[(-\vec{p}\cdot\vec{E}(\tau_2))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau_2))_{21}\lvert 2\rangle\langle 1\rvert][\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\right.\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[(-\vec{p}\cdot\vec{E}(\tau_2))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau_2))_{21}\lvert 2\rangle\langle 1\rvert][\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert m\rangle\langle 1\rvert][(-\vec{p}\cdot\vec{E}(\tau_2))_{12}\lvert 1\rangle\langle 2\rvert-(-\vec{p}\cdot\vec{E}(\tau_2))_{21}\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&+\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\\
+            \nonumber&\left.\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert][(-\vec{p}\cdot\vec{E}(\tau_2))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau_2))_{21}\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)^2\mathscr{E}^2\left[\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\delta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{E}}{\omega_{21}})+\delta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{E}}{\omega_{21}})]\right.\\
+            \nonumber&\qquad\qquad[p_{12}\lvert 1\rangle\langle 2\rvert+p_{21}\lvert 2\rangle\langle 1\rvert][\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\delta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{E}}{\omega_{21}})+\delta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{E}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad[p_{12}\lvert 1\rangle\langle 2\rvert+p_{21}\lvert 2\rangle\langle 1\rvert][\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&-\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\delta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{E}}{\omega_{21}})+\delta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{E}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\\
+            \nonumber&\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert][p_{12}\lvert 1\rangle\langle 2\rvert+p_{21}\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(t-\tau_2))\\
+            \nonumber&+\int_{-\infty}^td\tau_2\,\hat{U}_0(t-\tau_2)[\delta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{E}}{\omega_{21}})+\delta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{E}}{\omega_{21}})]\\
+            \nonumber&\qquad\qquad[\theta(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\\
+            \nonumber&\left.\qquad\qquad+\theta(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_2-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert][p_{12}\lvert 1\rangle\langle 2\rvert+p_{21}\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(t-\tau_2))\right]\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)^2\mathscr{E}^2\left[\hat{U}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{12}p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 1\rvert\hat{U}_0(-(t-\tau_b-\frac{\vec{k}_b\cdot\vec{E}}{\omega_{21}}))\right.\\
+            \nonumber&-\hat{U}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{21}p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 2\rvert\hat{U}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})\\
+            \nonumber&-\hat{U}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{21}p_{12}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)}{\omega_{21}})]\lvert 2\rangle\langle k\rvert\hat{U}_0(-(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}}))\\
+            \nonumber&\left.+\hat{U}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})p_{12}p_{21}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_b-\tau_a-\frac{(\vec{k}_b-\vec{k}_a)}{\omega_{21}})]\lvert 1\rangle\langle 1\rvert\hat{U}_0(-(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}}))\right]\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)^2\mathscr{E}^2\left[\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{12}p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{E}}{\omega_{21}})]\right.\\
+            \nonumber&-\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{21}p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&-\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{21}p_{12}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)}{\omega_{21}})]\lvert 2\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\\
+            \nonumber&\left.+\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{12}p_{21}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\right]\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)^2\mathscr{E}^2\left[p_{12}p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 1\rvert\right.\\
+            \nonumber&-p_{21}p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 2\rvert\\
+            \nonumber&-p_{21}p_{12}\exp[-\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 2\rvert\\
+            \nonumber&\left.+p_{12}p_{21}\exp[-\frac{i}{\hbar}(E_1-E_2)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 1\rvert\right]\\
+            =&2\left(-\frac{i}{\hbar}\right)^2\mathscr{E}^2p_{12}p_{21}\left(\begin{matrix}
+                1&0\\
+                0&-1
+            \end{matrix}\right)\cos\left[\frac{(E_2-E_1)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})}{\hbar}\right].
+        \end{align}
+        \normalsize
+        % The first-order density matrix at time $\tau_2<t<\tau_3$ is
+        % \footnotesize
+        % \begin{align}
+        %     \nonumber&\hat{\rho}^{(1)}(t)=\left(-\frac{i}{\hbar}\right)\hat{U}_0(t)\int_{-\infty}^td\tau\,[\hat{H}_0,\rho]\hat{U}_0(-t)\\
+        %     \nonumber=&\left(-\frac{i}{\hbar}\right)\left[\int_{-\infty}^td\tau\,\hat{U}_0(t-\tau)\hat{H}_I(\tau)\hat{\rho}_0\hat{U}_0(-(t-\tau))-\int_{-\infty}^t\hat{U}_0(t-\tau)\rho_0\hat{H}_I\hat{U}_0(-(t-\tau))\right]\\
+        %     \nonumber=&\left(-\frac{i}{\hbar}\right)\left[\int_{-\infty}^td\tau\,\hat{U}_0(t-\tau)[(-\vec{p}\cdot\vec{E}(\tau))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau))_{21}\lvert 2\rangle\langle 1\rvert)]\lvert 1\rangle\langle 1\rvert\right.\\
+        %     \nonumber&\qquad\qquad\left.-\int_{-\infty}^td\tau\,\hat{U}_0(t-\tau)\lvert 1\rangle\langle 1\rvert[(-\vec{p}\cdot\vec{E}(\tau))_{12}\lvert 1\rangle\langle 2\rvert+(-\vec{p}\cdot\vec{E}(\tau))_{21}\lvert 2\rangle\langle 1\rvert]\hat{U}_0(-(t-\tau))\right]\\
+        %     \nonumber=&-\left(-\frac{i}{\hbar}\right)\mathscr{E}\left[\int_{-\infty}^td\tau\,\hat{U}_0(t-\tau)[\delta(\tau-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})+\delta(\tau-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert\hat{U}_0(-(t-\tau))\right.\\
+        %     \nonumber&\qquad\qquad\left.-\int_{-\infty}^td\tau\,\hat{U}_0(t-\tau)[\delta(\tau-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})+\delta(\tau-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert\hat{U}_0(-(t-\tau))\right]\\
+        %     \nonumber=&-\left(-\frac{i}{\hbar}\right)\mathscr{E}\left[\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]+\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\right.\\
+        %     \nonumber&\qquad\qquad\left.-\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]-\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\right]\\
+        %     \nonumber=&-\left(-\frac{i}{\hbar}\right)\mathscr{E}\left[\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert+\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{21}\lvert 2\rangle\langle 1\rvert\right.\\
+        %     \nonumber&\qquad\qquad\left.-\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert-\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]p_{12}\lvert 1\rangle\langle 2\rvert\right]\\
+        %     =&\left(-\frac{i}{\hbar}\right)\mathscr{E}\left(\begin{matrix}
+        %     0&p_{12}\left[\begin{array}{l}\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\\+\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\end{array}\right]\\
+        %         -p_{21}\left[\begin{array}{l}\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_a-\frac{\vec{k}_a\cdot\vec{x}}{\omega_{21}})]\\
+        %         +\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_b-\frac{\vec{k}_b\cdot\vec{x}}{\omega_{21}})]\end{array}\right]&0
+        %     \end{matrix}\right).
+        % \end{align}
+        % \normalsize
+        % The zeroth-order density matrix at time $\tau_b<t<\tau_c$ is
+        % \begin{equation}
+        %     \hat{\rho}^{(0)}(\tau)=\left(\begin{matrix}
+        %         1&0\\
+        %         0&0
+        %     \end{matrix}\right)
+        % \end{equation}
+        % The density matrix up to second order after the second pulse ($t>\tau_b$) is
+        % \footnotesize
+        % \begin{align}
+        %     \nonumber\hat{\rho}'(t)=&\hat{\rho}^{(0)}(t)+\hat{\rho}^{(1)}(t)+\hat{\rho}^{(2)}(t)\\
+        %     \nonumber=&\left(\begin{matrix}
+        %         1&0\\
+        %         0&0
+        %     \end{matrix}\right)+\left(-\frac{i}{\hbar}\right)\mathscr{E}\left(\begin{matrix}
+        %         0&p_{12}\left[\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})]+1\right]\\
+        %         -p_{21}\left[\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_a+\frac{(\vec{k}_a-\vec{k}_b)\cdot\vec{x}}{\omega_{21}})]+1\right]&0
+        %     \end{matrix}\right)\\
+        %     &+2\left(-\frac{i}{\hbar}\right)^2\mathscr{E}^2p_{12}p_{21}\left(\begin{matrix}
+        %         1&0\\
+        %         0&-1
+        %     \end{matrix}\right)\cos\left[\frac{(E_2-E_1)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})}{\hbar}\right].
+        % \end{align}
+        % \normalsize
+        The third-order density matrix at time $t$ is
+        \footnotesize
+        \begin{align}
+            \nonumber\hat{\rho}^{(3)}(t)=&\left(-\frac{i}{\hbar}\right)\hat{U}_0(t)\int_{\tau_b}^td\tau_3\,[\hat{H}_I'(\tau_3),\hat{\rho}^{(2)'}(\tau_3)]\hat{U}_0(-t)\\
+            \nonumber=&\left(-\frac{i}{\hbar}\right)\left[\int_{\tau_b}^td\tau_c\,\hat{U}_0(t-\tau_3)\hat{H}(-\tau_3)\hat{\rho}^{(2)}(\tau_3)\hat{U}_0(-(t-\tau_3))-\int_{\tau_b}^td\tau_c\,\hat{U}_0(t-\tau_3)\hat{\rho}^{(2)}(\tau_3)\hat{H}(-\tau_3)\hat{U}_0(-(t-\tau_3))\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)\mathscr{E}\left[\int_{\tau_b}^td\tau_3\,\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_3)]\delta(\tau_3-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}})[p_{12}\lvert 1\rangle\langle 2\rvert+p_{21}\lvert 2\rangle\langle 1\rvert][\rho_{11}^{(2)}(\tau_3)\lvert 1\rangle\langle 1\rvert+\rho_{22}^{(2)}(\tau_3)\lvert 2\rangle\langle 2\rvert]\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_3)]\right.\\
+            \nonumber&\left.-\int_{\tau_b}^td\tau_3\,\exp[-\frac{i}{\hbar}\hat{H}_0(t-\tau_3)][\rho_{11}^{(2)}(\tau_3)\lvert 1\rangle\langle 1\rvert+\rho_{22}^{(2)}(\tau_3)\lvert 2\rangle\langle 2\rvert]\delta(\tau_3-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}})[p_{12}\lvert 1\rangle\langle 2\rvert+p_{21}\lvert 2\rangle\langle 1\rvert]\exp[\frac{i}{\hbar}\hat{H}_0(t-\tau_3)]\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)\mathscr{E}\left[\int_{\tau_b}^td\tau_3\,\delta(\tau_3-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}})[p_{12}\rho_{22}(\tau_3)\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_3)]\lvert 1\rangle\langle 2\rvert+p_{21}\rho_{11}(\tau_b)\exp[\frac{i}{\hbar}(E_2-E_1)(t-\tau_3)]\lvert 2\rangle\langle 1\rvert]\right.\\
+            \nonumber&\left.-\int_{\tau_b}^td\tau_3\,[\rho_{11}(\tau_b)p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_3)]\lvert 1\rangle\langle 2\rvert+\rho_{22}(\tau_b)p_{21}\exp[\frac{i}{\hbar}(E_2-E_1)(t-\tau_3)]\lvert 2\rangle\langle 1\rvert]\delta(\tau_3-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}})\right]\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)\mathscr{E}\left[p_{12}\rho_{22}(\tau_3)\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert+p_{21}\rho_{11}(\tau_3)\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}}))]\lvert 2\rangle\langle 1\rvert\right.\\
+            \nonumber&\left.-\rho_{11}(\tau_3)p_{12}\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert-\rho_{22}(\tau_3)p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}})]\lvert 2\rangle\langle 1\rvert\right]\hat{U}_0(-t)\\
+            \nonumber=&-\left(-\frac{i}{\hbar}\right)\mathscr{E}\left[p_{12}(\rho_{22}(\tau_b)-\rho_{11}(\tau_3))\exp[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}})]\lvert 1\rangle\langle 2\rvert\right.\\
+            \nonumber&\left.p_{21}(\rho_{11}(\tau_3)-\rho_{22}(\tau_3))\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}}))]\lvert 2\rangle\langle 1\rvert\right]\\
+            \nonumber=&4\left(-\frac{i}{\hbar}\right)^3\mathscr{E}p_{12}p_{21}\left(\begin{matrix}
+                0&p_{12}\exp\left[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}})\right]\\
+                -p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}}))]&0
+            \end{matrix}\right)\\
+            \nonumber&\qquad\qquad\times\cos\left[\frac{(E_2-E_1)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})}{\hbar}\right]\\
+            \nonumber=&4\left(-\frac{i}{\hbar}\right)^3\mathscr{E}p_{12}p_{21}\left(\begin{matrix}
+                0&p_{12}\exp\left[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}})\right]\\
+                -p_{21}\exp[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_c-\frac{\vec{k}_c\cdot\vec{x}}{\omega_{21}}))]&0
+            \end{matrix}\right)\\
+            \nonumber&\qquad\qquad\times\left\{\exp\left[\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})\right]+\exp\left[-\frac{i}{\hbar}(E_2-E_1)(\tau_b-\tau_a+\frac{(\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})\right]\right\}\\
+        \end{align}
+        \normalsize
+        In the above density matrix, the part characterized by $\vec{k}_c+\vec{k}_b-\vec{k}_a$ is
+        \footnotesize
+        \begin{align}
+            \nonumber&\hat{\rho}_{\vec{k}_c+\vec{k}_b-\vec{k}_a}^{(3)}(t)\\
+            =&4\left(-\frac{i}{\hbar}\right)^3\mathscr{E}p_{12}p_{21}\left(\begin{matrix}
+                0&p_{12}\exp\left[-\frac{i}{\hbar}(E_1-E_2)(t-\tau_c-\tau_b+\tau_a-\frac{(\vec{k}_c+\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})\right]\\
+                -p_{21}\exp\left[-\frac{i}{\hbar}(E_2-E_1)(t-\tau_c-\tau_b+\tau_a-\frac{(\vec{k}_c+\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})\right]&0
+            \end{matrix}\right).
+        \end{align}
+        \normalsize
+        \item[(b)] The density matrix at time $t$ given by $t-\tau_c=\tau_b-\tau_a$ is
+        \footnotesize
+        \begin{equation}
+            \hat{\rho}_{\vec{k}_c+\vec{k}_b-\vec{k}_a}^{(3)}(t=\tau_c+\tau_b-\tau_a)=4\left(-\frac{i}{\hbar}\right)^3\mathscr{E}p_{12}p_{21}\left(\begin{matrix}
+                0&p_{12}\exp\left[-\frac{i}{\hbar}(E_2-E_1)\frac{(\vec{k}_c+\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}}\right]\\
+                -p_{21}\exp\left[-\frac{i}{\hbar}(E_1-E_2)\frac{(\vec{k}_c+\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}}\right]
+            \end{matrix}\right).
+        \end{equation}
+        \normalsize
+        \item[(c)] Without loss of generality, we set $E_2>E_1$ and thus $\hbar(\omega_{21}-\Delta\omega_{21}/2)\leq E_2-E_1\leq\hbar(\omega_{21}+\Delta\omega_{21}/2)$.
+        \begin{enumerate}
+            \item[i.] The density matrix at time $t$ is
+            \footnotesize
+            \begin{align}
+                \nonumber&\hat{\rho}_{\vec{k}_c+\vec{k}_b-\vec{k}_a}(t)\\
+                \nonumber=&\int_{\omega_{21}-\Delta\omega_{21}/2}^{\omega_{21}+\Delta\omega_{21}/2}d\omega\,g(\omega)\\
+                \times&4\left(-\frac{i}{\hbar}\right)^3\mathscr{E}p_{12}p_{21}\left(\begin{matrix}
+                    0&p_{12}\exp\left[-i\omega(t-\tau_c-\tau_b-+\tau_a-\frac{(\vec{k}_c+\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})\right]\\
+                    -p_{21}\exp\left[i\omega(t-\tau_c-\tau_b+\tau_a-\frac{(\vec{k}_c+\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})\right]
+                \end{matrix}\right).
+            \end{align}
+            \normalsize
+            Since $(t-\tau_c)-(\tau_b-\tau_a)\gg\frac{1}{\Delta\omega_{21}}\gg\frac{1}{\omega_{21}}$, $(t-\tau_c-\tau_b+\tau_a-\frac{(\vec{k}_c+\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}})$ can be approximately regarded as $(t-\tau_c-\tau_b+\tau_a)$. In this way, we have
+            \footnotesize
+            \begin{align}
+                \nonumber&\hat{\rho}_{\vec{k}_c+\vec{k}_b-\vec{k}_a}(t\gg\tau_c+\tau_b-\tau_a+\frac{1}{\Delta\omega_{21}})\\
+                \nonumber\approx&4\left(-\frac{i}{\hbar}\right)^3\mathscr{E}p_{12}p_{21}\int_{\omega_{21}-\Delta\omega_{21}/2}^{\omega_{21}+\Delta\omega_{21}/2}d\omega\,g(\omega)\left(\begin{matrix}
+                    0&p_{12}\exp\left[-i\omega(t-\tau_c-\tau_b-+\tau_a)\right]\\
+                    -p_{21}\exp\left[i\omega(t-\tau_c-\tau_b+\tau_a)\right]&0
+                \end{matrix}\right).\\
+                \approx&0
+            \end{align}
+            \normalsize
+            \item[ii.] The density matrix at time $t-\tau_c=\tau_b-\tau_a$ is
+            \footnotesize
+            \begin{align}
+                \nonumber&\hat{\rho}_{\vec{k}_c+\vec{k}_b-\vec{k}_a}(t=\tau_c+\tau_b-\tau_a)\\
+                =&\int_{\omega_{21}-\Delta\omega_{21}/2}^{\omega_{21}+\Delta\omega_{21}/2}d\omega\,g(\omega)\times 4\left(-\frac{i}{\hbar}\right)^3\mathscr{E}p_{12}p_{21}\left(\begin{matrix}
+                    0&p_{12}\exp\left[-i\omega\frac{(\vec{k}_c+\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}}\right]\\
+                    -p_{21}\exp\left[i\omega\frac{(\vec{k}_c+\vec{k}_b-\vec{k}_a)\cdot\vec{x}}{\omega_{21}}\right]&0
+                \end{matrix}\right).
+            \end{align}
+            \normalsize
+            Since the oscillators are almost same, $\Delta\omega_{21}\ll\omega_{21}$, we have
+            \footnotesize
+            \begin{equation}
+                \hat{\rho}_{\vec{k}_c+\vec{k}_b-\vec{k}_a}(t=\tau_c+\tau_b-\tau_a)\approx4\left(-\frac{i}{\hbar}\right)^3\mathscr{E}p_{12}p_{21}\left(\begin{matrix}
+                    0&p_{12}\exp\left[-i(\vec{k}_c+\vec{k}_b-\vec{k}_a)\cdot\vec{x}\right]\\
+                    -p_{21}\exp\left[i(\vec{k}_c+\vec{k}_b-\vec{k}_a)\cdot\vec{x}\right]&0
+                \end{matrix}\right).
+            \end{equation}
+            \normalsize
+        \end{enumerate}
+    \end{enumerate}
+\end{sol}
+\end{document}

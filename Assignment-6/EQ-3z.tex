@@ -1,0 +1,655 @@
+\documentclass[UTF8,10pt,a4paper]{article}
+\usepackage[vmargin=1in,hmargin=.5in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,bm}
+\begin{document}
+\begin{itemize}
+\item For $u=x,\alpha=x,\beta=x,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xxxx}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=x,\alpha=x,\beta=x,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xxxy}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=x,\alpha=x,\beta=x,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xxxz}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\chi_{\text{EQ},yyyz}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\chi_{\text{EQ},xxyz}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},xyxz}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},yxxz}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=x,\beta=y,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xxyx}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=x,\alpha=x,\beta=y,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xxyy}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=x,\alpha=x,\beta=y,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xxyz}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},yyyz}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},xxyz}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}1\chi_{\text{EQ},xyxz}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}1\chi_{\text{EQ},yxxz}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=x,\beta=z,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xxzx}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yyzy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xxzy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyzx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxzx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=x,\beta=z,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xxzy}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyzy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxzy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\frac{\sqrt{3}}{2}\chi_{\text{EQ},xyzx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)1\frac{\sqrt{3}}{2}\chi_{\text{EQ},yxzx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=x,\beta=z,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xxzz}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)11\chi_{\text{EQ},yyzz}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)11\chi_{\text{EQ},xxzz}^{(2)}\right]\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=y,\beta=x,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xyxx}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=x,\alpha=y,\beta=x,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xyxy}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=x,\alpha=y,\beta=x,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xyxz}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\chi_{\text{EQ},yyyz}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)1\chi_{\text{EQ},xxyz}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},xyxz}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)1\chi_{\text{EQ},yxxz}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=y,\beta=y,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xyyx}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=x,\alpha=y,\beta=y,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xyyy}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=x,\alpha=y,\beta=y,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xyyz}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},yyyz}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)1\chi_{\text{EQ},xxyz}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}1\chi_{\text{EQ},xyxz}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}1\chi_{\text{EQ},yxxz}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=y,\beta=z,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xyzx}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yyzy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}1\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xxzy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyzx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}1\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxzx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=y,\beta=z,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xyzy}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyzy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}1\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxzy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\frac{\sqrt{3}}{2}\chi_{\text{EQ},xyzx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}1\frac{\sqrt{3}}{2}\chi_{\text{EQ},yxzx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=y,\beta=z,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xyzz}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)11\chi_{\text{EQ},yyzz}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}11\chi_{\text{EQ},xxzz}^{(2)}\right]\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=z,\beta=x,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xzxx}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yzyy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xzxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xzyx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yzxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=z,\beta=x,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xzxy}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yzyy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xzxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xzyx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yzxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=z,\beta=x,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xzxz}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)1\chi_{\text{EQ},yzyz}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)1\chi_{\text{EQ},xzxz}^{(2)}\right]\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=z,\beta=y,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xzyx}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yzyy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xzxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xzyx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)1\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},yzxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=z,\beta=y,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xzyy}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yzyy}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},xzxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xzyx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{\sqrt{3}}{2}\right)1\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\chi_{\text{EQ},yzxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=z,\beta=y,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xzyz}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{1}{2}\right)1\chi_{\text{EQ},yzyz}^{(2)}\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\frac{\sqrt{3}}{2}1\chi_{\text{EQ},xzxz}^{(2)}\right]\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=z,\beta=z,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xzzx}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)11\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yzzy}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)11\left(-\frac{1}{2}\right)\chi_{\text{EQ},xzzx}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=z,\beta=z,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xzzy}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)11\left(-\frac{1}{2}\right)\chi_{\text{EQ},yzzy}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)11\frac{\sqrt{3}}{2}\chi_{\text{EQ},xzzx}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=x,\alpha=z,\beta=z,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},xzzz}^{(2)}=&\left(-\frac{\sqrt{3}}{2}\right)111\chi_{\text{EQ},yzzz}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=x,\beta=x,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yxxx}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=y,\alpha=x,\beta=x,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yxxy}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=y,\alpha=x,\beta=x,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yxxz}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\chi_{\text{EQ},yyyz}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\chi_{\text{EQ},xxyz}^{(2)}\right]+\left[\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},xyxz}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},yxxz}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=x,\beta=y,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yxyx}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=y,\alpha=x,\beta=y,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yxyy}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=y,\alpha=x,\beta=y,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yxyz}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},yyyz}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},xxyz}^{(2)}\right]+\left[\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}1\chi_{\text{EQ},xyxz}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}1\chi_{\text{EQ},yxxz}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=x,\beta=z,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yxzx}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yyzy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xxzy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyzx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxzx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=x,\beta=z,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yxzy}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyzy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxzy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)1\frac{\sqrt{3}}{2}\chi_{\text{EQ},xyzx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\frac{\sqrt{3}}{2}\chi_{\text{EQ},yxzx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=x,\beta=z,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yxzz}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)11\chi_{\text{EQ},yyzz}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)11\chi_{\text{EQ},xxzz}^{(2)}\right]\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=y,\beta=x,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yyxx}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=y,\alpha=y,\beta=x,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yyxy}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=y,\alpha=y,\beta=x,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yyxz}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\chi_{\text{EQ},yyyz}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)1\chi_{\text{EQ},xxyz}^{(2)}\right]+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},xyxz}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)1\chi_{\text{EQ},yxxz}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=y,\beta=y,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yyyx}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=y,\alpha=y,\beta=y,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yyyy}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyyy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxyy}^{(2)}\right]+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyxy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xyyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxxy}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yxyx}^{(2)}\right]+\left[\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\chi_{\text{EQ},yyxx}^{(2)}\right]\\
+&+\left[\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\chi_{\text{EQ},xxxx}^{(2)}\right]
+\end{align}\normalsize
+\item For $u=y,\alpha=y,\beta=y,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yyyz}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},yyyz}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)1\chi_{\text{EQ},xxyz}^{(2)}\right]+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}1\chi_{\text{EQ},xyxz}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}1\chi_{\text{EQ},yxxz}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=y,\beta=z,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yyzx}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yyzy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}1\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xxzy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},xyzx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}1\left(-\frac{1}{2}\right)\chi_{\text{EQ},yxzx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=y,\beta=z,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yyzy}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},yyzy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}1\left(-\frac{1}{2}\right)\chi_{\text{EQ},xxzy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)1\frac{\sqrt{3}}{2}\chi_{\text{EQ},xyzx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}1\frac{\sqrt{3}}{2}\chi_{\text{EQ},yxzx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=y,\beta=z,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yyzz}^{(2)}=&\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)11\chi_{\text{EQ},yyzz}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}11\chi_{\text{EQ},xxzz}^{(2)}\right]\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=z,\beta=x,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yzxx}^{(2)}=&\left(-\frac{1}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yzyy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}1\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xzxy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xzyx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yzxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=z,\beta=x,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yzxy}^{(2)}=&\left(-\frac{1}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yzyy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xzxy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}1\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xzyx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},yzxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=z,\beta=x,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yzxz}^{(2)}=&\left(-\frac{1}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)1\chi_{\text{EQ},yzyz}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}1\left(-\frac{1}{2}\right)1\chi_{\text{EQ},xzxz}^{(2)}\right]\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=z,\beta=y,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yzyx}^{(2)}=&\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yzyy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}1\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},xzxy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},xzyx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},yzxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=z,\beta=y,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yzyy}^{(2)}=&\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},yzyy}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}1\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},xzxy}^{(2)}\right]\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}1\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},xzyx}^{(2)}\right]\\
+\nonumber&+\left[\left(-\frac{1}{2}\right)1\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\chi_{\text{EQ},yzxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=z,\beta=y,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yzyz}^{(2)}=&\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)1\chi_{\text{EQ},yzyz}^{(2)}\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}1\frac{\sqrt{3}}{2}1\chi_{\text{EQ},xzxz}^{(2)}\right]\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=z,\beta=z,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yzzx}^{(2)}=&\left(-\frac{1}{2}\right)11\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},yzzy}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}11\left(-\frac{1}{2}\right)\chi_{\text{EQ},xzzx}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=z,\beta=z,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yzzy}^{(2)}=&\left(-\frac{1}{2}\right)11\left(-\frac{1}{2}\right)\chi_{\text{EQ},yzzy}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[\frac{\sqrt{3}}{2}11\frac{\sqrt{3}}{2}\chi_{\text{EQ},xzzx}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=y,\alpha=z,\beta=z,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},yzzz}^{(2)}=&\left(-\frac{1}{2}\right)111\chi_{\text{EQ},yzzz}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=x,\beta=x,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zxxx}^{(2)}=&1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},zyyy}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},zxxy}^{(2)}\right]\\
+\nonumber&+\left[1\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zxyx}^{(2)}\right]+\left[1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zyxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=x,\beta=x,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zxxy}^{(2)}=&1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zyyy}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zxxy}^{(2)}\right]\\
+\nonumber&+\left[1\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},zxyx}^{(2)}\right]+\left[1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},zyxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=x,\beta=x,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zxxz}^{(2)}=&1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\chi_{\text{EQ},zyyz}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},zxxz}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=x,\beta=y,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zxyx}^{(2)}=&1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},zyyy}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[1\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},zxxy}^{(2)}\right]\\
+\nonumber&+\left[1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zxyx}^{(2)}\right]+\left[1\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},zyxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=x,\beta=y,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zxyy}^{(2)}=&1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zyyy}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[1\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},zxxy}^{(2)}\right]\\
+\nonumber&+\left[1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},zxyx}^{(2)}\right]+\left[1\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\chi_{\text{EQ},zyxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=x,\beta=y,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zxyz}^{(2)}=&1\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},zyyz}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[1\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}1\chi_{\text{EQ},zxxz}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=x,\beta=z,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zxzx}^{(2)}=&1\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},zyzy}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&+\left[1\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},zxzx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=x,\beta=z,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zxzy}^{(2)}=&1\left(-\frac{\sqrt{3}}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},zyzy}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&+\left[1\left(-\frac{1}{2}\right)1\frac{\sqrt{3}}{2}\chi_{\text{EQ},zxzx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=x,\beta=z,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zxzz}^{(2)}=&1\left(-\frac{\sqrt{3}}{2}\right)11\chi_{\text{EQ},zyzz}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=y,\beta=x,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zyxx}^{(2)}=&1\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},zyyy}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[1\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},zxxy}^{(2)}\right]\\
+\nonumber&+\left[1\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zxyx}^{(2)}\right]+\left[1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zyxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=y,\beta=x,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zyxy}^{(2)}=&1\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zyyy}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[1\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zxxy}^{(2)}\right]\\
+\nonumber&+\left[1\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},zxyx}^{(2)}\right]+\left[1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},zyxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=y,\beta=x,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zyxz}^{(2)}=&1\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)1\chi_{\text{EQ},zyyz}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[1\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)1\chi_{\text{EQ},zxxz}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=y,\beta=y,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zyyx}^{(2)}=&1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},zyyy}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[1\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},zxxy}^{(2)}\right]\\
+\nonumber&+\left[1\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zxyx}^{(2)}\right]+\left[1\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},zyxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=y,\beta=y,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zyyy}^{(2)}=&1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zyyy}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[1\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},zxxy}^{(2)}\right]\\
+\nonumber&+\left[1\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},zxyx}^{(2)}\right]+\left[1\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\chi_{\text{EQ},zyxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=y,\beta=y,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zyyz}^{(2)}=&1\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)1\chi_{\text{EQ},zyyz}^{(2)}\\
+\nonumber&\\
+\nonumber&+\left[1\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}1\chi_{\text{EQ},zxxz}^{(2)}\right]\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=y,\beta=z,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zyzx}^{(2)}=&1\left(-\frac{1}{2}\right)1\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},zyzy}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&+\left[1\frac{\sqrt{3}}{2}1\left(-\frac{1}{2}\right)\chi_{\text{EQ},zxzx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=y,\beta=z,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zyzy}^{(2)}=&1\left(-\frac{1}{2}\right)1\left(-\frac{1}{2}\right)\chi_{\text{EQ},zyzy}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&+\left[1\frac{\sqrt{3}}{2}1\frac{\sqrt{3}}{2}\chi_{\text{EQ},zxzx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=y,\beta=z,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zyzz}^{(2)}=&1\left(-\frac{1}{2}\right)11\chi_{\text{EQ},zyzz}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=z,\beta=x,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zzxx}^{(2)}=&11\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},zzyy}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&+\left[11\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zzxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=z,\beta=x,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zzxy}^{(2)}=&11\left(-\frac{\sqrt{3}}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zzyy}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&+\left[11\left(-\frac{1}{2}\right)\frac{\sqrt{3}}{2}\chi_{\text{EQ},zzxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=z,\beta=x,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zzxz}^{(2)}=&11\left(-\frac{\sqrt{3}}{2}\right)1\chi_{\text{EQ},zzyz}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=z,\beta=y,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zzyx}^{(2)}=&11\left(-\frac{1}{2}\right)\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},zzyy}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&+\left[11\frac{\sqrt{3}}{2}\left(-\frac{1}{2}\right)\chi_{\text{EQ},zzxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=z,\beta=y,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zzyy}^{(2)}=&11\left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right)\chi_{\text{EQ},zzyy}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&+\left[11\frac{\sqrt{3}}{2}\frac{\sqrt{3}}{2}\chi_{\text{EQ},zzxx}^{(2)}\right]\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=z,\beta=y,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zzyz}^{(2)}=&11\left(-\frac{1}{2}\right)1\chi_{\text{EQ},zzyz}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=z,\beta=z,\gamma=x$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zzzx}^{(2)}=&111\left(-\frac{\sqrt{3}}{2}\right)\chi_{\text{EQ},zzzy}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=z,\beta=z,\gamma=y$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zzzy}^{(2)}=&111\left(-\frac{1}{2}\right)\chi_{\text{EQ},zzzy}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\item For $u=z,\alpha=z,\beta=z,\gamma=z$, we have
+\footnotesize\begin{align}
+\nonumber\chi_{\text{EQ},zzzz}^{(2)}=&1111\chi_{\text{EQ},zzzz}^{(2)}\\
+\nonumber&\\
+\nonumber&\\
+\nonumber&\\
+&
+\end{align}\normalsize
+\end{itemize}
+\end{document}

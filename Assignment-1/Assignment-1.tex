@@ -1,0 +1,195 @@
+% !TEX program = pdflatex
+% !TEX options = -synctex=1 -interaction=nonstopmode -file-line-error "%DOC%"
+% Nonlinear Optics Assignment 1
+\documentclass[UTF8,10pt,a4paper]{article}
+\usepackage[scheme=plain]{ctex}
+\newcommand{\CourseName}{Nonlinear Optics}
+\newcommand{\CourseCode}{PHYS2202}
+\newcommand{\Semester}{Spring, 2020}
+\newcommand{\ProjectName}{Assignment 1}
+\newcommand{\DueTimeType}{Due Time}
+\newcommand{\DueTime}{13:00, March 10, 2020 (Tuesday)}
+\newcommand{\StudentName}{陈稼霖}
+\newcommand{\StudentID}{45875852}
+\usepackage[vmargin=1in,hmargin=.5in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{calc}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\CourseName}
+\fancyhead[C]{\ProjectName}
+\fancyhead[R]{\StudentName}
+\fancyfoot[R]{\thepage\ / \pageref{LastPage}}
+\setlength\headheight{12pt}
+\fancypagestyle{FirstPageStyle}{
+    \fancyhf{}
+    \fancyhead[L]{\CourseName\\
+        \CourseCode\\
+        \Semester}
+    \fancyhead[C]{{\Huge\bfseries\ProjectName}\\
+        \DueTimeType\ : \DueTime}
+    \fancyhead[R]{Name : \makebox[\widthof{\StudentID}][s]{\StudentName}\\
+        Student ID\@ : \StudentID\\
+        Score : \underline{\makebox[\widthof{\StudentID}]{}}}
+    \fancyfoot[R]{\thepage\ / \pageref{LastPage}}
+    \setlength\headheight{36pt}
+}
+\usepackage{amsmath,amssymb,amsthm,bm}
+\allowdisplaybreaks[4]
+\newtheoremstyle{Problem}
+{}
+{}
+{}
+{}
+{\bfseries}
+{.}
+{ }
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)} Score: \underline{\qquad\qquad}}
+\theoremstyle{Problem}
+\newtheorem{prob}{Problem}
+\newtheoremstyle{Solution}
+{}
+{}
+{}
+{}
+{\bfseries}
+{:}
+{ }
+{\thmname{#1}}
+\makeatletter
+\def\@endtheorem{\qed\endtrivlist\@endpefalse}
+\makeatother
+\theoremstyle{Solution}
+\newtheorem*{sol}{Solution}
+% \usepackage{graphicx}
+\begin{document}
+\thispagestyle{FirstPageStyle}
+\begin{prob}[Third order anharmonic response]
+    Consider a classical electron centered on an immobile ion and bound about the position $x=0$ by an anharmonic potential
+    \[
+        U(x)=\frac{1}{2}m\omega_0^2x^2+\frac{1}{3}v_ax^3+\frac{1}{4}v_bx^4.
+    \]
+    What is the response at frequency $2\omega_2-\omega_1$ to a driving electric field
+    \[
+        E(x=0,t)=E_1\cos(\omega_1t)+E_2\cos(\omega_2t)+E_3\cos(\omega_3t),
+    \]
+    where $\omega_3>\omega_2>\omega_1$.
+\end{prob}
+\begin{sol}
+    Before the formal calculation, we state three suppositions for simplicity:
+    \begin{itemize}
+        \item We suppose that the electron is localized in an sufficiently small range where the driving field can be regarded as spatially uniform, so we can discard the spatial variable $x$ in the field function and simply write it as
+              \begin{align}
+                  \nonumber E(t)= & E_1\cos(\omega_1t)+E_2\cos(\omega_2t)+E_3\cos(\omega_3t)                                      \\
+                  =               & \frac{1}{2}\left(E_1e^{-i\omega_1t}+E_2e^{-i\omega_2t}+E_3e^{-i\omega_3t}\right)+\text{c.c.},
+              \end{align}
+              where $\text{c.c.}$ represents the complex conjugate.
+        \item We will consider a sufficiently weak nonlinear response so that we can perform a perturbation expansion of the electron's displacement.
+        \item We set $\omega_1>0$ and suppose that the nonlinear responses of higher order is much smaller than that of lower order, so that the $3$rd-order response at frequency $2\omega_2-\omega_1$ is the mainly contributor to the total response at frequency $2\omega_2-\omega_1$.
+    \end{itemize}
+
+    Now, let's get to our work. First, we write down the motion equation of the electron:
+    \begin{equation}
+        m\frac{d^2}{dt^2}x=-2m\Gamma\frac{d}{dt}x+F(x)+\frac{-eE(t)}{m},
+    \end{equation}
+    where:
+    \begin{itemize}
+        \item $x$ is the displacement of the electron,
+        \item $m$ is the mass of the electron,
+        \item $-e<0$ is the charge of the electron,
+        \item $\Gamma$ is the damping constant such that the term $-2m\Gamma\frac{d}{dt}x$ represents the damping force on the electron, linear in its velocity,
+        \item and $F$ is the conservative force corresponding to the anharmonic potential on the electron:
+              \begin{equation}
+                  F(x)=-\frac{\partial U(x)}{\partial x}=-(m\omega_0^2x+v_ax^2+v_bx^3).
+              \end{equation}
+    \end{itemize}
+    For convenience, we reexpress the motion equation as
+    \begin{equation}
+        \label{motion-equ}
+        \frac{d^2}{dt^2}x+2\Gamma\frac{d}{dt}x+\omega_0^2x+\frac{v_a}{m}x^2+\frac{v_b}{m}x^3=\frac{-e}{2m}\left(E_1e^{-i\omega_1t}+E_2e^{-i\omega_2t}+E_3e^{-i\omega_3t}\right)+\text{c.c.}.
+    \end{equation}
+
+    As mentioned in the suppositions, the weak nonlinear response is sufficiently weak, so we can expand the displacement as
+    \begin{equation}
+        \label{expansion}
+        x=\lambda x^{(1)}+\lambda^2x^{(2)}+\lambda^3x^{(3)}+\cdots,
+    \end{equation}
+    where $\lambda$ is a bookkeeping notation to remind us of the order of the expansion.
+    Plug the expansion equation \eqref{expansion} into the motion equation \eqref{motion-equ} and the terms of same order in two side of the equation should be equal. Collecting the $1$st-order terms (terms linear in $\lambda$), we get
+    \begin{equation}
+        \left(\frac{d^2}{dt^2}+2\Gamma\frac{d}{dt}+\omega_0^2\right)x^{(1)}(t)=-\frac{e}{2m}\left(E_1e^{-i\omega_1t}+E_2e^{-i\omega_2t}+E_3e^{-i\omega_3t}\right)+\text{c.c.},
+    \end{equation}
+    whose solutions is
+    \begin{equation}
+        \label{1st-order-sol}
+        x^{(1)}(t)=-\frac{e}{2m}\left[\frac{E_1}{\mathcal{D}(\omega_1)}e^{-i\omega_1t}+\frac{E_2}{\mathcal{D}(\omega_2)}e^{-i\omega_2t}+\frac{E_3}{\mathcal{D}(\omega_3)}e^{-i\omega_3t}\right]+\text{c.c.},
+    \end{equation}
+    where we define that $\mathcal{D}(\omega_j)=\omega_0^2-\omega_j^2-i2\Gamma\omega_j$.
+    Using the similar method for $2$nd-order terms, we get
+    \begin{equation}
+        \label{2nd-order-motion}
+        \left(\frac{d^2}{dt^2}+2\Gamma\frac{d}{dt}+\omega_0^2\right)x^{(2)}(t)+\frac{v_a}{m}\left[x^{(1)}(t)\right]^2=0.
+    \end{equation}
+    The $2$nd-order displacement consists of oscillations of multiple frequencies:
+    \begin{equation}
+        \label{2nd-order-displacement}
+        x^{(2)}=\sum_j\frac{1}{2}\tilde{x}_{\omega_j}^{(2)}e^{-i\omega_j^{(2)}t}+\text{c.c.}.
+    \end{equation}
+    Plugging the above equation \eqref{2nd-order-displacement} and equation \eqref{1st-order-sol} into the $2$nd-order motion equation \eqref{2nd-order-motion}, we get
+    \begin{gather}
+        \left(\frac{d^2}{dt^2}+2\Gamma\frac{d}{dt}+\omega_0^2\right)\left[\sum_j\frac{1}{2}\tilde{x}_{\omega_j}^{(2)}(t)e^{-i\omega_j^{(2)}t}+\text{c.c}\right]+\frac{v_a}{m}\left\{\frac{-e}{2m}\left[\frac{E_1}{\mathcal{D}(\omega_1)}e^{-i\omega_1t}+\frac{E_2}{\mathcal{D}(\omega_2)}e^{-i\omega_2t}+\frac{E_3}{\mathcal{D}(\omega_3)}e^{-i\omega_3t}\right]+\text{c.c.}\right\}^2=0,\\
+        \Longrightarrow\sum_j\left[\frac{1}{2}\mathcal{D}(\omega_j^{(2)})\tilde{x}_{\omega_j}^{(2)}e^{-i\omega_j^{(2)}t}+\text{c.c.}\right]+\frac{v_ae^2}{4m^3}\left\{\left[\frac{E_1}{\mathcal{D}(\omega_1)}e^{-i\omega_1t}+\frac{E_2}{\mathcal{D}(\omega_2)}e^{-i\omega_2t}+\frac{E_3}{\mathcal{D}(\omega_3)}e^{-i\omega_3t}\right]+\text{c.c.}\right\}^2=0.
+    \end{gather}
+    Due to the orthogonality of the sinusoidal functions of different frequencies, the coefficients before terms of different frequencies in the right side of the above equation should be equal to zero respectively, so the frequencies of the oscillations contained in the $2$nd-order displacement are $0$, $2\omega_1$, $2\omega_2$, $2\omega_3$, $\omega_1+\omega_2$, $\omega_1+\omega_3$, $\omega_2+\omega_3$, $-\omega_1+\omega_2$, $-\omega_1+\omega_3$, $-\omega_2+\omega_3$. These oscillation terms satisfy the following equations respectively:
+    \begin{itemize}
+        \item $\omega_j^{(2)}=0$:
+              \begin{gather}
+                  \frac{1}{2}\mathcal{D}(0)\tilde{x}_0^{(2)}(t)+3\frac{v_ae^2}{4m^3}\left[\frac{E_1^2}{\mathcal{D}(\omega_1)\mathcal{D}(-\omega_1)}+\frac{E_2^2}{\mathcal{D}(\omega_2)\mathcal{D}(-\omega_2)}+\frac{E_3^2}{\mathcal{D}(\omega_3)\mathcal{D}(-\omega_3)}\right]=0,\\
+                  \label{2nd-order-sol1}
+                  \Longrightarrow\tilde{x}_0^{(2)}=-\frac{3v_ae^2}{2m^3}\left[\frac{E_1^2}{\mathcal{D}(\omega_1)\mathcal{D}_1(-\omega_1)\mathcal{D}(0)}+\frac{E_2^2}{\mathcal{D}(\omega_2)\mathcal{D}(-\omega_2)\mathcal{D}(0)}+\frac{E_3^2}{\mathcal{D}(\omega_3)\mathcal{D}(-\omega_3)\mathcal{D}(0)}\right].
+              \end{gather}
+        \item $\omega_j^{(2)}=2\omega_k$ where $k=1,2,3$:
+              \begin{gather}
+                  \frac{1}{2}\mathcal{D}(2\omega_k)\tilde{x}_{2\omega_k}^{(2)}(t)+\frac{v_ae^2}{4m^3}\left[\frac{E_k}{\mathcal{D}(\omega_k)}\right]^2,\\
+                  \label{2nd-order-sol2}
+                  \Longrightarrow\tilde{x}_{2\omega_k}^{(2)}=-\frac{v_ae^2}{2m^3}\frac{E_k^2}{\mathcal{D}^2(\omega_k)\mathcal{D}(2\omega_k)},\quad k=1,2,3.
+              \end{gather}
+        \item $\omega_j^{(2)}=\omega_k\pm\omega_l$ where $(k,l)=(2,1),(3,1),(3,2)$:
+              \begin{gather}
+                  \frac{1}{2}\mathcal{D}(\omega_k\pm\omega_l)\tilde{x}_{\omega_k\pm\omega_l}^{(2)}(t)+2\frac{v_ae^2}{4m^3}\left[\frac{E_kE_l}{\mathcal{D}(\omega_k)\mathcal{D}(\pm\omega_l)}\right]\\
+                  \label{2nd-order-sol3}
+                  \Longrightarrow\tilde{x}_{\omega_k\pm\omega_l}^{(2)}=-\frac{v_ae^2}{m^3}\frac{E_kE_l}{\mathcal{D}(\omega_k)\mathcal{D}(\pm\omega_l)\mathcal{D}(\omega_k\pm\omega_l)},\quad(k,l)=(2,1),(3,1),(3,2).
+              \end{gather}
+    \end{itemize}
+    Finally, we arrive at the $3$rd-order. The 3th-order motion equation is
+    \begin{equation}
+        \label{3rd-order-motion}
+        \left(\frac{d^2}{dt^2}+2\Gamma\frac{d}{dt}+\omega_0^2\right)x_0^{(3)}(t)+\frac{2v_a}{m}x^{(1)}x^{(2)}+\frac{v_b}{m}\left[\bm{x}^{(1)}\right]^3=0.
+    \end{equation}
+    Still, the $3$rd-order displacement consists of oscillations of multiple frequencies:
+    \begin{equation}
+        \label{3rd-order-displacement}
+        x^{(3)}=\sum_j\frac{1}{2}\tilde{x}_{\omega_j}^{(3)}e^{-i\omega_j^{(3)}}+\text{c.c.}.
+    \end{equation}
+    Plugging the above equation \eqref{3rd-order-displacement} and equations \eqref{1st-order-sol}\eqref{2nd-order-sol1}\eqref{2nd-order-sol2}\eqref{2nd-order-sol3} into equation \eqref{3rd-order-motion}, we find that the oscillation term of frequency $2\omega_1-\omega_2$ in the $3$rd-order displacement satisfies
+    \begin{gather}
+        \begin{align}
+            \nonumber  & \frac{1}{2}\mathcal{D}(2\omega_2-\omega_1)\tilde{x}_{2\omega_2-\omega_1}^{(3)}                                                                                                                                                                                                                                                                                                        & \\
+            \nonumber+ & \frac{2v_a}{m}\left\{\left[-\frac{e}{2m}\frac{E_2}{\mathcal{D}(\omega_2)}\right]\left[-\frac{1}{2}\frac{v_ae^2}{m^3}\frac{E_2E_1}{\mathcal{D}(\omega_2)\mathcal{D}(-\omega_1)\mathcal{D}(\omega_2-\omega_1)}\right]+\left[-\frac{e}{2m}\frac{E_1}{D(-\omega_1)}\right]\left[-\frac{1}{2}\frac{v_ae^2}{2m^3}\frac{E_2^2}{\mathcal{D}^2(\omega_2)\mathcal{D}(2\omega_2)}\right]\right\}   \\
+            +          & \frac{v_b}{m}\left\{3\left[-\frac{e}{2m}\frac{E_1}{\mathcal{D}(-\omega_1)}\right]\left[-\frac{e}{2m}\frac{E_2}{\mathcal{D}(\omega_2)}\right]^2\right\}=0,
+        \end{align}\\
+        \Longrightarrow\tilde{x}_{2\omega_1-\omega_2}^{(3)}=\frac{e^3}{m^3}\left[\frac{(v_a/m)^2}{\mathcal{D}^2(\omega_2)\mathcal{D}(-\omega_1)\mathcal{D}(\omega_2-\omega_1)}+\frac{(v_a/m)^2}{\mathcal{D}(-\omega_1)\mathcal{D}^2(\omega_2)\mathcal{D}(2\omega_2)}+\frac{v_b/m}{\mathcal{D}(-\omega_1)\mathcal{D}^2(\omega_2)}\right]\frac{E_1E_2^2}{\mathcal{D}(2\omega_2-\omega_1)}.
+    \end{gather}
+
+    Therefore, the oscillation of the electron at frequencies $2\omega_2-\omega_1$ is
+    \begin{equation}
+        x_{2\omega_2-\omega_1}^{(2)}(t)=\frac{1}{2}\tilde{x}_{2\omega_2-\omega_2}^{(2)}e^{-i(2\omega_2-\omega_1)t}+\text{c.c.},
+    \end{equation}
+    and the polarization response at frequency $2\omega_2-\omega_1$ is
+    \begin{align}
+        \nonumber & P_{2\omega_2-\omega_1}(t)=-ex_{2\omega_2-\omega_1}^{(2)}(t)                                                                                                                                                                                                                                                                                                           \\
+        =         & -\frac{e^4}{2m^3}\left[\frac{(v_a/m)^2}{\mathcal{D}^2(\omega_2)\mathcal{D}(-\omega_1)\mathcal{D}(\omega_2-\omega_1)}+\frac{(v_a/m)^2}{\mathcal{D}(-\omega_1)\mathcal{D}^2(\omega_2)\mathcal{D}(2\omega_2)}+\frac{v_b/m}{\mathcal{D}(-\omega_1)\mathcal{D}^2(\omega_2)}\right]\frac{E_1E_2^2}{\mathcal{D}(2\omega_2-\omega_1)}e^{-i(2\omega_2-\omega_1)t}+\text{c.c.}.
+    \end{align}
+\end{sol}
+\end{document}
